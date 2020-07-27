@@ -10,11 +10,11 @@
       "masters": ["gentoo", "gnu-elpa"]
     },
     "melpa": {
-      "repo_uri": "http://melpa.milkbox.net/packages/",
+      "repo_uri": "http://melpa.org/packages/",
       "masters": ["gentoo", "gnu-elpa"]
     },
     "melpa-stable": {
-      "repo_uri": "http://melpa-stable.milkbox.net/packages/",
+      "repo_uri": "http://stable.melpa.org/packages/",
       "masters": ["gentoo", "gnu-elpa"]
     }
   },
