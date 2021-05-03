@@ -3,18 +3,18 @@
   "package": "gs_elpa",
   "repositories": {
     "gnu-elpa": {
-      "repo_uri": "http://elpa.gnu.org/packages/"
+      "repo_uri": "https://elpa.gnu.org/packages/"
     },
     "marmalade": {
-      "repo_uri": "http://marmalade-repo.org/packages/",
+      "repo_uri": "https://marmalade-repo.org/packages/",
       "masters": ["gentoo", "gnu-elpa"]
     },
     "melpa": {
-      "repo_uri": "http://melpa.org/packages/",
+      "repo_uri": "https://melpa.org/packages/",
       "masters": ["gentoo", "gnu-elpa"]
     },
     "melpa-stable": {
-      "repo_uri": "http://stable.melpa.org/packages/",
+      "repo_uri": "https://stable.melpa.org/packages/",
       "masters": ["gentoo", "gnu-elpa"]
     }
   },

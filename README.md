@@ -30,8 +30,8 @@ layman -a melpa-stable
 emerge -va clojure-mode
 ```
 
-There are 3 gs-elpa overlays currently: [gnu-elpa](http://elpa.gnu.org/), [marmalade](http://marmalade-repo.org/),
-[melpa](http://melpa.milkbox.net/) and [melpa-stable](http://melpa-stable.milkbox.net/).
+There are 3 gs-elpa overlays currently: [gnu-elpa](https://elpa.gnu.org/), [marmalade](https://marmalade-repo.org/),
+[melpa](https://melpa.org/) and [melpa-stable](https://stable.melpa.org/).
 
 When using **gs-elpa** with layman you can populate overlay only with packages you want.
 To do so you should add a section named gs-elpa to */etc/g-sorcery/g-sorcery.cfg*.

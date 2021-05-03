@@ -4,7 +4,7 @@
 <repo quality="experimental" status="unofficial">
     <name>gnu-elpa</name>
     <description>packages for emacs</description>
-    <homepage>http://elpa.gnu.org/</homepage>
+    <homepage>https://elpa.gnu.org/</homepage>
     <owner>
       <email>jauhien@gentoo.org</email>
       <name>Jauhien Piatlicki</name>
@@ -14,7 +14,7 @@
 <repo quality="experimental" status="unofficial">
     <name>marmalade</name>
     <description>packages for emacs</description>
-    <homepage>http://marmalade-repo.org/</homepage>
+    <homepage>https://marmalade-repo.org/</homepage>
     <owner>
       <email>jauhien@gentoo.org</email>
       <name>Jauhien Piatlicki</name>
@@ -24,7 +24,7 @@
 <repo quality="experimental" status="unofficial">
     <name>melpa</name>
     <description>packages for emacs</description>
-    <homepage>http://melpa.milkbox.net</homepage>
+    <homepage>https://melpa.org/</homepage>
     <owner>
       <email>jauhien@gentoo.org</email>
       <name>Jauhien Piatlicki</name>
@@ -34,7 +34,7 @@
 <repo quality="experimental" status="unofficial">
     <name>melpa-stable</name>
     <description>packages for emacs</description>
-    <homepage>http://melpa-stable.milkbox.net</homepage>
+    <homepage>https://stable.melpa.org/</homepage>
     <owner>
       <email>jauhien@gentoo.org</email>
       <name>Jauhien Piatlicki</name>
