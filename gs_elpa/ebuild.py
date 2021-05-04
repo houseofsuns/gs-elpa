@@ -16,7 +16,7 @@ import collections
 from g_sorcery.ebuild import DefaultEbuildGenerator
 
 Layout = collections.namedtuple("Layout",
-    ["vars_before_inherit", "inherit",
+    ["eapi", "vars_before_inherit", "inherit",
      "vars_after_description", "vars_after_keywords"])
   
 
@@ -25,6 +25,8 @@ class ElpaEbuildWithDigestGenerator(DefaultEbuildGenerator):
     Implementation of ebuild generator with sources digesting.
     """
     def __init__(self, package_db):
+
+        eapi = "7"
 
         vars_before_inherit = \
           ["repo_uri", "source_type", "realname", {"name" : "digest_sources", "value" : "yes"}]
@@ -37,8 +39,8 @@ class ElpaEbuildWithDigestGenerator(DefaultEbuildGenerator):
         vars_after_keywords = \
           ["depend", "rdepend"]
 
-        layout = Layout(vars_before_inherit,
-                    inherit, vars_after_description, vars_after_keywords)
+        layout = Layout(eapi, vars_before_inherit, inherit,
+                    vars_after_description, vars_after_keywords)
 
         super(ElpaEbuildWithDigestGenerator, self).__init__(package_db, layout)
 
@@ -47,6 +49,8 @@ class ElpaEbuildWithoutDigestGenerator(DefaultEbuildGenerator):
     Implementation of ebuild generator without sources digesting.
     """
     def __init__(self, package_db):
+
+        eapi = "7"
 
         vars_before_inherit = \
           ["repo_uri", "source_type", "realname"]
@@ -59,7 +63,7 @@ class ElpaEbuildWithoutDigestGenerator(DefaultEbuildGenerator):
         vars_after_keywords = \
           ["depend", "rdepend"]
 
-        layout = Layout(vars_before_inherit, inherit,
+        layout = Layout(eapi, vars_before_inherit, inherit,
                     vars_after_description, vars_after_keywords)
 
         super(ElpaEbuildWithoutDigestGenerator, self).__init__(package_db, layout)
