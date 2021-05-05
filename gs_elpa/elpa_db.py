@@ -7,7 +7,7 @@
 
     ELPA package database
 
-    :copyright: (c) 2013-2015 by Jauhien Piatlicki
+    :copyright: (c) 2013-2021 Jauhien Piatlicki and others
     :license: GPL-2, see LICENSE for more details.
 """
 

@@ -9,9 +9,10 @@ manage overlays for ELPA repositories
 :Author: Written by Jauhien Piatlicki <jauhien@gentoo.org>. GSoC idea
 	 and mentorship by Rafael Martins. Lots of help and improvements
 	 by Brian Dolbec.
-:Date:   2015-04-20
-:Copyright: Copyright (c) 2013-2015 Jauhien Piatlicki, License: GPL-2
-:Version: 0.2
+:Date:   2021-05-05
+:Copyright: Copyright (c) 2013-2021 Jauhien Piatlicki and others,
+	    License: GPL-2
+:Version: 0.2.1
 :Manual section: 8
 :Manual group: g-sorcery
 

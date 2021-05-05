@@ -7,7 +7,7 @@
     
     ebuild generation
     
-    :copyright: (c) 2013 by Jauhien Piatlicki
+    :copyright: (c) 2013-2021 Jauhien Piatlicki and others
     :license: GPL-2, see LICENSE for more details.
 """
 
