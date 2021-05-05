@@ -88,6 +88,11 @@ class ElpaDBGenerator(DBGenerator):
             if self.in_config([common_config, config], "exclude", realname):
                 continue
 
+            # Version numbers with negative elements have been seen
+            # in melpa-stable. Skip these packages for now.
+            if not all(i >= 0 for i in desc[INFO_VERSION]):
+                continue
+
             pkg = Package("app-emacs", realname,
                           '.'.join(map(str, desc[INFO_VERSION])))
             source_type = desc[INFO_SRC_TYPE].value()
