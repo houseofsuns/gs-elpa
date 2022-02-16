@@ -24,6 +24,7 @@ from g_sorcery.g_collections import Dependency, Package, serializable_elist
 from g_sorcery.package_db import DBGenerator
 from g_sorcery.exceptions import SyncError
 
+
 class ElpaDBGenerator(DBGenerator):
     """
     Implementation of database generator for ELPA backend.
@@ -41,7 +42,7 @@ class ElpaDBGenerator(DBGenerator):
             List with one URI entry.
         """
         ac_uri = urljoin(config["repo_uri"], 'archive-contents')
-        return [{"uri" : ac_uri, "parser" : sexpdata.load}]
+        return [{"uri": ac_uri, "parser": sexpdata.load}]
 
     def process_data(self, pkg_db, data, common_config, config):
         """
@@ -57,8 +58,8 @@ class ElpaDBGenerator(DBGenerator):
         repo_uri = config["repo_uri"]
 
         if sexpdata.car(archive_contents) != 1:
-            raise SyncError('sync failed: ' \
-                        + repo_uri + ' bad archive contents format')
+            raise SyncError(
+                'sync failed: ' + repo_uri + ' bad archive contents format')
 
         category = 'app-emacs'
         pkg_db.add_category(category)
@@ -79,7 +80,7 @@ class ElpaDBGenerator(DBGenerator):
         INFO_SRC_TYPE = 3
 
         DEP_NAME = 0
-        #DEP_VERSION = 1 #we do not use it at the moment
+        # DEP_VERSION = 1 #we do not use it at the moment
 
         for entry in sexpdata.cdr(archive_contents):
             desc = entry[PKG_INFO].I
@@ -97,16 +98,19 @@ class ElpaDBGenerator(DBGenerator):
                           '.'.join(map(str, desc[INFO_VERSION])))
             source_type = str(desc[INFO_SRC_TYPE])
 
-            allowed_ords = set(range(ord('a'), ord('z'))) \
-                    | set(range(ord('A'), ord('Z'))) | \
-                    set(range(ord('0'), ord('9'))) | set(list(map(ord,
-                    ['+', '_', '-', ' ', '.', '(', ')', '[', ']', '{', '}', ','])))
-            description = "".join([x for x in desc[INFO_DESCRIPTION] if ord(x) in allowed_ords])
+            allowed_ords = (
+                set(range(ord('a'), ord('z')))
+                | set(range(ord('A'), ord('Z')))
+                | set(range(ord('0'), ord('9')))
+                | set(list(map(ord, ['+', '_', '-', ' ', '.', '(', ')',
+                                     '[', ']', '{', '}', ',']))))
+            description = "".join([x for x in desc[INFO_DESCRIPTION]
+                                   if ord(x) in allowed_ords])
 
             deps = desc[INFO_DEPENDENCIES]
 
-            #fix for crappy arhive-contents that have "No commentary."
-            #in place of dependency
+            # fix for crappy arhive-contents that have "No commentary."
+            # in place of dependency
             if isinstance(deps, basestring):
                 deps = []
 
@@ -118,13 +122,13 @@ class ElpaDBGenerator(DBGenerator):
                 if dep:
                     dependencies.append(dep)
 
-            properties = {'source_type' : source_type,
-                          'description' : description,
-                          'dependencies' : dependencies,
-                          'depend' : dependencies,
-                          'rdepend' : dependencies,
-                          'realname' : realname,
-                          'longdescription' : description
+            properties = {'source_type': source_type,
+                          'description': description,
+                          'dependencies': dependencies,
+                          'depend': dependencies,
+                          'rdepend': dependencies,
+                          'realname': realname,
+                          'longdescription': description
                           }
             pkg_db.add_package(pkg, properties)
 
@@ -138,6 +142,7 @@ class ElpaDBGenerator(DBGenerator):
             dependency: Package name.
 
         Returns:
-            Dependency instance with category="app-emacs", package="dependency".
+            Dependency instance with category="app-emacs",
+            package="dependency".
         """
         return Dependency("app-emacs", dependency)
