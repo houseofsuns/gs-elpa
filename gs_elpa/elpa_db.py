@@ -63,12 +63,12 @@ class ElpaDBGenerator(DBGenerator):
 
         category = 'app-emacs'
         pkg_db.add_category(category)
-        common_data = {'eclasses' : ['g-sorcery', 'gs-elpa'],
-                       'maintainer' : [{'email' : 'jauhien@gentoo.org',
-                                        'name' : 'Jauhien Piatlicki'}],
-                       'homepage' : repo_uri,
-                       'repo_uri' : repo_uri
-                   }
+        common_data = {'eclasses': ['g-sorcery', 'gs-elpa'],
+                       'maintainer': [{'email': 'gentoo@houseofsuns.org',
+                                       'name': 'Markus Walter'}],
+                       'homepage': repo_uri,
+                       'repo_uri': repo_uri
+                       }
         pkg_db.set_common_data(category, common_data)
 
         PKG_INFO = 2
