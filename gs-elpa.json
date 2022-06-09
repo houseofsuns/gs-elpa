@@ -3,10 +3,11 @@
     "package": "gs_elpa",
     "repositories": {
         "gnu-elpa": {
-            "repo_uri": "https://elpa.gnu.org/packages/"
+            "repo_uri": "https://elpa.gnu.org/packages/",
+            "masters": ["gentoo"]
         },
-        "marmalade": {
-            "repo_uri": "https://marmalade-repo.org/packages/",
+        "nongnu-elpa": {
+            "repo_uri": "https://elpa.nongnu.org/nongnu/",
             "masters": ["gentoo", "gnu-elpa"]
         },
         "melpa": {
