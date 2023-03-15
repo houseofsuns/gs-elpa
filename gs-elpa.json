@@ -35,6 +35,22 @@
             "proof-general": "proofgeneral",
             "websearch": "emacs-websearch"
         },
-        "external": {"emacs": "virtual/emacs", "cl-lib": "virtual/emacs", "eieio": "virtual/emacs"}
+        "external": {
+            "ansi-color": "virtual/emacs",
+            "auth-source-pass": "virtual/emacs",
+            "calc": "virtual/emacs",
+            "cl-lib": "virtual/emacs",
+            "cl-print": "virtual/emacs",
+            "ede": "virtual/emacs",
+            "eieio": "virtual/emacs",
+            "emacs": "virtual/emacs",
+            "epg": "virtual/emacs",
+            "ert": "virtual/emacs",
+            "gnus": "virtual/emacs",
+            "json": "virtual/emacs",
+            "semantic": "virtual/emacs",
+            "tabulated-list": "virtual/emacs",
+            "term": "virtual/emacs"
+        }
     }
 }
