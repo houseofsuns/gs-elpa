@@ -23,6 +23,18 @@
         "exclude": [
             "@", "comment-dwim-2"
         ],
+        "substitute": {
+            "aio": "emacs-aio",
+            "ansilove": "emacs-ansilove",
+            "bazel": "emacs-bazel-mode",
+            "citeproc": "citeproc-el",
+            "crystal-mode": "emacs-crystal-mode",
+            "el-fetch": "emacs-el-fetch",
+            "org": "org-mode",
+            "org-superstar": "org-superstar-mode",
+            "proof-general": "proofgeneral",
+            "websearch": "emacs-websearch"
+        },
         "external": {"emacs": "virtual/emacs", "cl-lib": "virtual/emacs", "eieio": "virtual/emacs"}
     }
 }

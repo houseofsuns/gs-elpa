@@ -82,6 +82,9 @@ class ElpaDBGenerator(DBGenerator):
         DEP_NAME = 0
         # DEP_VERSION = 1 #we do not use it at the moment
 
+        substitutions = self.combine_config_dicts([common_config, config],
+                                                  'substitute')
+
         for entry in sexpdata.cdr(archive_contents):
             desc = entry[PKG_INFO].I
             realname = str(entry[PKG_NAME])
@@ -94,7 +97,7 @@ class ElpaDBGenerator(DBGenerator):
             if not all(i >= 0 for i in desc[INFO_VERSION]):
                 continue
 
-            pkg = Package("app-emacs", realname,
+            pkg = Package("app-emacs", substitutions.get(realname, realname),
                           '.'.join(map(str, desc[INFO_VERSION])))
             source_type = str(desc[INFO_SRC_TYPE])
 
@@ -117,7 +120,8 @@ class ElpaDBGenerator(DBGenerator):
             dependencies = serializable_elist(separator="\n\t")
             for dep in deps:
                 dep = self.convert_dependency(
-                    [common_config, config], str(dep[DEP_NAME]),
+                    [common_config, config],
+                    substitutions.get(str(dep[DEP_NAME]), str(dep[DEP_NAME])),
                     external=False)
                 if dep:
                     dependencies.append(dep)
