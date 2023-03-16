@@ -66,7 +66,6 @@ class ElpaDBGenerator(DBGenerator):
         common_data = {'eclasses': ['g-sorcery', 'gs-elpa'],
                        'maintainer': [{'email': 'gentoo@houseofsuns.org',
                                        'name': 'Markus Walter'}],
-                       'homepage': repo_uri,
                        'repo_uri': repo_uri
                        }
         pkg_db.set_common_data(category, common_data)
@@ -78,6 +77,8 @@ class ElpaDBGenerator(DBGenerator):
         INFO_DEPENDENCIES = 1
         INFO_DESCRIPTION = 2
         INFO_SRC_TYPE = 3
+        INFO_META = 4
+        SYMBOL_HOMEPAGE = ':url'
 
         DEP_NAME = 0
         # DEP_VERSION = 1 #we do not use it at the moment
@@ -126,13 +127,21 @@ class ElpaDBGenerator(DBGenerator):
                 if dep:
                     dependencies.append(dep)
 
+            homepage = repo_uri
+            for item in desc[INFO_META]:
+                if len(item) == 3:
+                    key, _, value = item
+                    if str(key) == SYMBOL_HOMEPAGE:
+                        homepage = value
+
             properties = {'source_type': source_type,
                           'description': description,
                           'dependencies': dependencies,
                           'depend': dependencies,
                           'rdepend': dependencies,
                           'realname': realname,
-                          'longdescription': description
+                          'longdescription': description,
+                          'homepage': homepage,
                           }
             pkg_db.add_package(pkg, properties)
 
