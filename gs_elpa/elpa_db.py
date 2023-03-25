@@ -102,14 +102,8 @@ class ElpaDBGenerator(DBGenerator):
                           '.'.join(map(str, desc[INFO_VERSION])))
             source_type = str(desc[INFO_SRC_TYPE])
 
-            allowed_ords = (
-                set(range(ord('a'), ord('z')))
-                | set(range(ord('A'), ord('Z')))
-                | set(range(ord('0'), ord('9')))
-                | set(list(map(ord, ['+', '_', '-', ' ', '.', '(', ')',
-                                     '[', ']', '{', '}', ',']))))
-            description = "".join([x for x in desc[INFO_DESCRIPTION]
-                                   if ord(x) in allowed_ords])
+            raw_description = self.strip_characters(desc[INFO_DESCRIPTION])
+            description = self.escape_bash_string(raw_description)
 
             deps = desc[INFO_DEPENDENCIES]
 
@@ -133,6 +127,7 @@ class ElpaDBGenerator(DBGenerator):
                     key, _, value = item
                     if str(key) == SYMBOL_HOMEPAGE:
                         homepage = value
+            homepage = self.escape_bash_string(self.strip_characters(homepage))
 
             properties = {'source_type': source_type,
                           'description': description,
@@ -140,7 +135,7 @@ class ElpaDBGenerator(DBGenerator):
                           'depend': dependencies,
                           'rdepend': dependencies,
                           'realname': realname,
-                          'longdescription': description,
+                          'longdescription': raw_description,
                           'homepage': homepage,
                           }
             pkg_db.add_package(pkg, properties)
