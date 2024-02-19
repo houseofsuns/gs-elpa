@@ -33,7 +33,8 @@
             "org": "org-mode",
             "org-superstar": "org-superstar-mode",
             "proof-general": "proofgeneral",
-            "websearch": "emacs-websearch"
+            "websearch": "emacs-websearch",
+            "iso-639": "iso_639"
         },
         "external": {
             "ansi-color": "virtual/emacs",
