@@ -34,7 +34,8 @@
             "org-superstar": "org-superstar-mode",
             "proof-general": "proofgeneral",
             "websearch": "emacs-websearch",
-            "iso-639": "iso_639"
+            "iso-639": "iso_639",
+            "tetris-60": "tetris_60"
         },
         "external": {
             "ansi-color": "virtual/emacs",
